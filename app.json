@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-music",
-    "slug": "my-music",
+    "name": "react-app",
+    "slug": "react-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
