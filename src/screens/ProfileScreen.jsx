@@ -28,7 +28,7 @@ const ProfileScreen = () => {
   const handleSaveProfile = () => {
     console.log('Profil sauvegardé:', { firstName, lastName, username, profileImage });
     // Ajoutez ici la logique de sauvegarde du profil si nécessaire
-    setShowProfileInfo(true); // Afficher les informations du profil après avoir appuyé sur "Save"
+    setShowProfileInfo(true); 
   };
 
   const handleImagePick = async () => {
@@ -55,7 +55,7 @@ const ProfileScreen = () => {
           <>
             {/* Afficher le nom complet */}
             <Text style={styles.profileName}>
-              {firstName} {lastName}
+            {lastName} {firstName}
             </Text>
 
             {/* Afficher l'adresse e-mail */}
@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   pickImageText: {
+    marginTop: 10,
     color: "blue",
   },
   label: {
@@ -142,12 +143,13 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   profileName: {
+    marginTop: 10,
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
   },
   profileUser: {
-    fontSize: 17,
+    fontSize: 20,
     color: "#333333",
   },
   button: {

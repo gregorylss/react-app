@@ -38,6 +38,7 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options={{
+        
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="home-outline" color={color} size={size} />
             ),
@@ -48,8 +49,8 @@ export default function App() {
           component={SearchStack}  // Utilisez le Stack Navigator pour SearchScreen et CocktailDetailsScreen
           options={{
           
-              headerShown: false, // Masquer le header
-            
+             
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="search-outline" color={color} size={size} />
             ),
@@ -59,7 +60,6 @@ export default function App() {
           name="Profile"
           component={ProfileScreen}
           options={{
-            headerShown: false, // Masquer le header
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="person-outline" color={color} size={size} />
             ),
