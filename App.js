@@ -29,16 +29,18 @@ function SearchStack() {
 }
 
 export default function App() {
-
-  
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        tabBarOptions={{
+          activeTintColor: '#7FFF00', // Couleur des icônes actives
+        }}
+      >
         <Tab.Screen
           name="Home"
           component={HomeScreen}
           options={{
-        
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="home-outline" color={color} size={size} />
             ),
@@ -46,10 +48,8 @@ export default function App() {
         />
         <Tab.Screen
           name="Search"
-          component={SearchStack}  // Utilisez le Stack Navigator pour SearchScreen et CocktailDetailsScreen
+          component={SearchStack}
           options={{
-          
-             
             headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="search-outline" color={color} size={size} />
@@ -69,5 +69,6 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
 
 

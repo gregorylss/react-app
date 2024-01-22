@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ScrollView, Text, StyleSheet, Image, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 function HomeScreen() {
   const [randomCocktail, setRandomCocktail] = useState(null);
@@ -155,6 +156,8 @@ function HomeScreen() {
   )}
   <Text style={styles.ingredientsTitle}>Ingredients:</Text>
   <View style={styles.ingredientsContainer}>{renderIngredients(randomCocktail)}</View>
+
+  
 </View>
 
       ) : null}
@@ -181,16 +184,18 @@ function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 60,
     backgroundColor: "#fff",
     padding: 10,
+    height: "70%",
   },
   title: {
-    fontSize: 40,
+    fontSize: 38,
     fontWeight: "bold",
     marginBottom: 10,
   },
   title2: {
-    fontSize: 42,
+    fontSize: 30,
     fontWeight: "light",
     marginBottom: 10,
   },
@@ -200,7 +205,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   drinkcategory: {
-    fontWeight: "lighter",
+    fontWeight: "400",
     color: "grey",
   },
   cocktailImage: {
@@ -231,8 +236,6 @@ const styles = StyleSheet.create({
   selectedText: {
     fontWeight: 'bold',
     color: '#00FF29',
-    textDecorationLine: 'underline',
-    borderRadius: 5,
   },
   newCocktailsContainer: {
     flexDirection: 'row',
@@ -252,11 +255,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   ingredientsContainer: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
-    gap: 10,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
   },
-
   ingredientItem: {
     borderWidth: 1,
     borderColor: '#ddd',
