@@ -10,14 +10,13 @@ import {
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
-// Composant de bouton réutilisable
+
 const Button = ({ onPress, title = 'Save' }) => (
   <TouchableOpacity style={styles.button} onPress={onPress}>
     <Text style={styles.text}>{title}</Text>
   </TouchableOpacity>
 );
-
-const ProfileScreen = () => {
+function ProfileScreen (){
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
@@ -27,7 +26,6 @@ const ProfileScreen = () => {
 
   const handleSaveProfile = () => {
     console.log('Profil sauvegardé:', { firstName, lastName, username, profileImage });
-    // Ajoutez ici la logique de sauvegarde du profil si nécessaire
     setShowProfileInfo(true); 
   };
 
@@ -53,12 +51,11 @@ const ProfileScreen = () => {
 
         {showProfileInfo && (
           <>
-            {/* Afficher le nom complet */}
+        
             <Text style={styles.profileName}>
             {lastName} {firstName}
             </Text>
 
-            {/* Afficher l'adresse e-mail */}
             <Text style={styles.profileUser}>
               @{username}
             </Text>
@@ -91,13 +88,6 @@ const ProfileScreen = () => {
           value={username}
           onChangeText={(text) => setUsername(text)}
         />
-
-        <Text style={styles.label}>Email</Text>
-        <TextInput
-          style={styles.input}
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-        />
       </View>
 
       <Button onPress={handleSaveProfile} title="Save your profile" />
@@ -109,7 +99,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: "#fff",
-    padding: 10,
+    padding: 15,
   },
   topContainer: {
     flexGrow: 1,

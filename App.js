@@ -7,23 +7,27 @@ import { Ionicons } from "@expo/vector-icons";
 import HomeScreen from './src/screens/HomeScreen.jsx';
 import ProfileScreen from './src/screens/ProfileScreen.jsx';
 import SearchScreen from './src/screens/SearchScreen.jsx';
-import CocktailDetailsScreen from './src/screens/CocktailScreen.jsx';  // Ajout de l'import pour CocktailDetailsScreen
+import CocktailDetailsScreen from './src/screens/CocktailScreen.jsx'; 
+import BarScreen from './src/screens/BarScreen.jsx'; 
 import { createStackNavigator } from '@react-navigation/stack';
-import * as Font from 'expo-font';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+function HomeStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="CocktailDetailsScreen" component={CocktailDetailsScreen} />
+    </Stack.Navigator>
+  );
+}
 
-
-
-
-// Créez une fonction pour le Stack Navigator autour de SearchScreen et CocktailDetailsScreen
 function SearchStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Search" component={SearchScreen} />
-      <Stack.Screen name="CocktailDetails" component={CocktailDetailsScreen} />
+      <Stack.Screen name="CocktailDetailsScreen" component={CocktailDetailsScreen} />
     </Stack.Navigator>
   );
 }
@@ -31,14 +35,10 @@ function SearchStack() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        tabBarOptions={{
-          activeTintColor: '#7FFF00', // Couleur des icônes actives
-        }}
-      >
+      <Tab.Navigator>
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
+          component={HomeStack}
           options={{
             headerShown: false,
             tabBarIcon: ({ color, size }) => (
@@ -57,6 +57,16 @@ export default function App() {
           }}
         />
         <Tab.Screen
+          name="BarScreen"
+          
+          component={BarScreen}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="pint-outline" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
           name="Profile"
           component={ProfileScreen}
           options={{
@@ -69,6 +79,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-
-

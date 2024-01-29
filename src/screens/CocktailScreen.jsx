@@ -1,5 +1,3 @@
-// CocktailDetailsScreen.jsx
-
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
@@ -7,7 +5,6 @@ const CocktailDetailsScreen = ({ route }) => {
   const { cocktailId } = route.params;
   const [cocktailDetails, setCocktailDetails] = useState(null);
 
-  // Fonction pour récupérer les détails du cocktail en fonction de l'ID
   const fetchCocktailDetails = async () => {
     try {
       const response = await fetch(
@@ -26,7 +23,6 @@ const CocktailDetailsScreen = ({ route }) => {
     fetchCocktailDetails();
   }, []);
 
-  // Afficher un indicateur de chargement si les détails sont en cours de chargement
   if (!cocktailDetails) {
     return (
       <View style={styles.loadingContainer}>
@@ -70,7 +66,7 @@ const CocktailDetailsScreen = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    padding: 15,
   },
   cocktailName: {
     fontSize: 24,
